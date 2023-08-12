@@ -1,10 +1,10 @@
-class Item {
+class Series {
   String? resourceUri;
   String? name;
 
-  Item({this.resourceUri, this.name});
+  Series({this.resourceUri, this.name});
 
-  factory Item.fromJson(Map<String, dynamic> json) => Item(
+  factory Series.fromJson(Map<String, dynamic> json) => Series(
         resourceUri: json['resourceURI'] as String?,
         name: json['name'] as String?,
       );

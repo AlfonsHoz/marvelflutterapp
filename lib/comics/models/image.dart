@@ -1,10 +1,10 @@
-class Thumbnail {
+class Image {
   String? path;
   String? extension;
 
-  Thumbnail({this.path, this.extension});
+  Image({this.path, this.extension});
 
-  factory Thumbnail.fromJson(Map<String, dynamic> json) => Thumbnail(
+  factory Image.fromJson(Map<String, dynamic> json) => Image(
         path: json['path'] as String?,
         extension: json['extension'] as String?,
       );

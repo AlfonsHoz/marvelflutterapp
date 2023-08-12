@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pruebamarvel/core/utils/app_colors.dart';
 
-class LightTextW extends StatelessWidget {
-  const LightTextW(
+class NormalTextW extends StatelessWidget {
+  const NormalTextW(
       {super.key, required this.content, this.fontColor = AppColors.appWhite});
 
   final String content;
@@ -11,11 +11,12 @@ class LightTextW extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      maxLines: 2,
-      overflow: TextOverflow.ellipsis,
       content,
-      style:
-          TextStyle(fontSize: 16, color: fontColor, fontFamily: 'Roboto-Light'),
+      style: TextStyle(
+          overflow: TextOverflow.ellipsis,
+          fontSize: 18,
+          color: fontColor,
+          fontFamily: 'Roboto-Regular'),
     );
   }
 }
