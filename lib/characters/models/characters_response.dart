@@ -1,20 +1,20 @@
 import 'package:pruebamarvel/characters/models/characters.dart';
 
 class CharactersResponse {
-  Characters? charactersResponse;
+  Characters? charactersData;
 
   CharactersResponse({
-    this.charactersResponse,
+    this.charactersData,
   });
 
   factory CharactersResponse.fromJson(Map<String, dynamic> json) {
     return CharactersResponse(
-        charactersResponse: json['data'] == null
+        charactersData: json['data'] == null
             ? null
             : Characters.fromJson(json['data'] as Map<String, dynamic>));
   }
 
   Map<String, dynamic> toJson() => {
-        'data': charactersResponse?.toJson(),
+        'data': charactersData?.toJson(),
       };
 }

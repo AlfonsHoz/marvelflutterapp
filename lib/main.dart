@@ -3,6 +3,8 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
 import 'package:pruebamarvel/characters/repository/characters_repository.dart';
 import 'package:pruebamarvel/characters/viewmodel/characters_viewmodel.dart';
+import 'package:pruebamarvel/comics/repository/comics_repository.dart';
+import 'package:pruebamarvel/comics/viewmodel/comics_viewmodel.dart';
 import 'package:pruebamarvel/core/app_routes.dart';
 import 'package:pruebamarvel/core/services/navigation_services.dart';
 import 'package:pruebamarvel/core/services/services_locator.dart';
@@ -22,8 +24,12 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-            create: (_) =>
-                CharactersViewModel(locator<CharactersRepositoryImpl>()))
+            create: (_) => CharactersViewModel(
+                locator<CharactersRepositoryImpl>(),
+                locator<ComicRepositoryImpl>())),
+        ChangeNotifierProvider(
+          create: (_) => ComicsViewModel(locator<ComicRepositoryImpl>()),
+        )
       ],
       child: MaterialApp(
         title: '',

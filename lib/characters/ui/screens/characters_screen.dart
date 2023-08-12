@@ -13,9 +13,10 @@ class CharactersScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final CharactersViewModel viewModel =
         Provider.of<CharactersViewModel>(context, listen: true);
-
     return BaseScreen(
+        showSearch: true,
         appBarTitle: AppStrings.characters,
+        onSearch: viewModel.searchCharacters,
         child: viewModel.isLoading
             ? const Center(child: CircularProgressIndicator())
             : Container(

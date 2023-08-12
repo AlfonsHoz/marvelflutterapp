@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
   final List<Category> cardsCategories = [
     Category.characters,
     Category.comics,
-    Category.series,
+    //Category.series,
   ];
 
   @override
@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
             child: GridView.count(
                 crossAxisCount: 1,
                 children: List.generate(
-                    3,
+                    2,
                     (index) => InkWell(
                         onTap: () => Navigator.pushNamed(
                             context, cardsCategories[index].route),
