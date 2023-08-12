@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pruebamarvel/core/utils/colors.dart';
+import 'package:pruebamarvel/core/utils/app_colors.dart';
 
-class NormalTextW extends StatelessWidget {
-  const NormalTextW(
+class BoldTextW extends StatelessWidget {
+  const BoldTextW(
       {super.key, required this.content, this.fontColor = AppColors.appWhite});
 
   final String content;
@@ -13,7 +13,7 @@ class NormalTextW extends StatelessWidget {
     return Text(
       content,
       style: TextStyle(
-          fontWeight: FontWeight.bold,
+          overflow: TextOverflow.ellipsis,
           fontSize: 18,
           color: fontColor,
           fontFamily: 'Roboto-Bold'),

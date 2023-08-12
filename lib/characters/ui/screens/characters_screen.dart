@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:pruebamarvel/characters/ui/widgets/character_row_widget.dart';
 import 'package:pruebamarvel/characters/viewmodel/characters_viewmodel.dart';
+import 'package:pruebamarvel/core/utils/app_colors.dart';
+import 'package:pruebamarvel/core/utils/app_strings.dart';
+import 'package:pruebamarvel/core/widgets/base_screen.dart';
 
 class CharactersScreen extends StatelessWidget {
   const CharactersScreen({super.key});
@@ -10,17 +14,22 @@ class CharactersScreen extends StatelessWidget {
     final CharactersViewModel viewModel =
         Provider.of<CharactersViewModel>(context, listen: true);
 
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('Marvel App'),
-        ),
-        body: viewModel.isLoading
-            ? const LinearProgressIndicator()
-            : ListView.builder(
-                itemBuilder: (_, index) => Container(
-                      margin: const EdgeInsets.all(14),
-                      child: Text(viewModel.characters[index].name ?? ''),
-                    ),
-                itemCount: viewModel.characters.length));
+    return BaseScreen(
+        appBarTitle: AppStrings.characters,
+        child: viewModel.isLoading
+            ? const Center(child: CircularProgressIndicator())
+            : Container(
+                color: AppColors.appBlack,
+                child: ListView.builder(
+                    itemBuilder: (_, index) => GestureDetector(
+                          child: CharacterRowW(
+                              character: viewModel.characters[index]),
+                          onTap: () {
+                            viewModel
+                                .characterClicked(viewModel.characters[index]);
+                          },
+                        ),
+                    itemCount: viewModel.characters.length),
+              ));
   }
 }

@@ -21,9 +21,9 @@ class CharactersRepositoryImpl implements CharactersRepository {
 
   @override
   Future<dynamic> getCharactersInformation(
-      {Map<String, String> queries = const {}}) async {
+      {String path = '', Map<String, String> queries = const {}}) async {
     return await ApiServices()
-        .getRequest(path: '/v1/public/characters', queries: queries)
+        .getRequest(path: path, queries: queries)
         .then((value) {
       if (value.statusCode == ApiHelper.success) {
         _defaultApiResponse =

@@ -7,5 +7,6 @@ final GetIt locator = GetIt.instance;
 void setupLocator() {
   locator.registerLazySingleton<CharactersRepositoryImpl>(
       () => CharactersRepositoryImpl());
-  locator.registerLazySingleton<NavigationServices>(() => NavigationServices());
+
+  locator.registerLazySingleton(() => NavigationServices());
 }
