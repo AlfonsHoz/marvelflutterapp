@@ -16,6 +16,7 @@ class ComicsViewModel extends ChangeNotifier {
   bool _isSearchingComics = false;
 
   List<Comic> get comics => _isSearchingComics ? _searchComics : _comics;
+
   Comic? get selectedComic => _selectedComic;
 
   ComicsViewModel(this._comicsRepository) {
@@ -23,7 +24,6 @@ class ComicsViewModel extends ChangeNotifier {
   }
 
   void _getComics() async {
-    _isSearchingComics = false;
     _comicsRepository.isLoading(true);
     await _comicsRepository.getComics(
         path: '/v1/public/comics',
@@ -41,7 +41,8 @@ class ComicsViewModel extends ChangeNotifier {
     await _comicsRepository.getComics(
         path: '/v1/public/comics/$comicId', queries: {}).then((value) async {
       if (_comicsRepository.comicsResponse != null) {
-        _comics = _comicsRepository.comicsResponse?.comicsData?.comics ?? [];
+        _selectedComic =
+            _comicsRepository.comicsResponse?.comicsData?.comics?.first;
       }
       _comicsRepository.isLoading(false);
       navServices.navigateTo(AppRoutes.comicDetailRoute);

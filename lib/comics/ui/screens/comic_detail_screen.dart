@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:pruebamarvel/characters/ui/widgets/character_row_widget.dart';
 import 'package:pruebamarvel/comics/ui/widgets/comic_item_row.dart';
 import 'package:pruebamarvel/comics/viewmodel/comics_viewmodel.dart';
 import 'package:pruebamarvel/core/utils/app_colors.dart';
@@ -8,7 +7,6 @@ import 'package:pruebamarvel/core/utils/app_strings.dart';
 import 'package:pruebamarvel/core/widgets/base_screen.dart';
 import 'package:pruebamarvel/core/utils/extensions.dart';
 import 'package:pruebamarvel/core/widgets/bold_text_widget.dart';
-import 'package:pruebamarvel/core/widgets/multi_line_text_widget.dart';
 
 class ComicDetailScreen extends StatelessWidget {
   const ComicDetailScreen({super.key});
