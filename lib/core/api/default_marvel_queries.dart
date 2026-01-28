@@ -10,7 +10,7 @@ class DefaultMarvelQueries {
 
   DefaultMarvelQueries() {
     ts = DateTime.now().millisecondsSinceEpoch.toString();
-    apikey = '24468d848a06bf7297f4e066cc771b92';
+    apikey = '';
     hash = _generateHash();
   }
 
